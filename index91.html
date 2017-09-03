@@ -1,0 +1,56 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>互動長條圖</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0">
+	<style>
+		.bar-group {
+			background: #eee;
+			height: 100px;
+			padding: 10px;
+		}
+		
+		div.bar {
+			width: 30px;
+			height: 30px;
+			background-color: gold;
+			margin-bottom: 5px;
+			transition: 2s;
+		}
+		
+		div.bar:hover {
+			background: red;
+		}
+		
+		.item1:hover {
+			width: 100px;
+			transition: 2s;
+		}
+		
+		.item2:hover {
+			width: 500px;
+			transition: 2s;
+		}
+		
+		.item3:hover {
+			width: 300px;
+			transition: 2s;
+		}
+	</style>
+	
+</head>
+<body>
+	<p>滑鼠移過方格看效果</p>
+	<div class="bar-group">
+		<div class="bar item1">
+		</div>
+		<div class="bar item2">
+		</div>
+		<div class="bar item3">
+		</div>
+	</div>
+</body>
+
+</html>

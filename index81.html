@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<title>滑鼠移入顯提示</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-1.6.4.js"></script>
+	<style>
+		.hint {
+			border: 2px solid #eee;
+			width: 200px;
+			padding: 10px;
+			background: #fff;
+			border-radius: 6px;
+			position: absolute;
+			left: 100%;
+			top: 0;
+			display: none;
+		}
+		
+		.playground {
+			width: 150px;
+			margin: 20em auto 0;
+			position: relative;
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<div class="playground">
+		滑鼠移入方框
+		<input type="text">
+		<div class="hint">This is a tooltip!</div>
+	</div>
+	<script>
+		$().ready(function() {
+			$("input").mouseover(function() {
+				$(".hint").css("display", "block");
+			});
+			$("input").mouseout(function() {
+				$(".hint").css("display", "none");
+			});
+		});
+
+	</script>
+
+</body>
+
+</html>

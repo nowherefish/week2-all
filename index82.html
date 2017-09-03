@@ -1,0 +1,100 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<title>密碼強度提示</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-1.6.4.js"></script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		#password {
+			display: block;
+			width: 200px;
+			padding: 10px 20px;
+			border: 1px solid #c8c8c8;
+			color: #333;
+			margin: 20vh auto 0;
+			text-align: center;
+		}
+		
+		#password>p {
+			font-size: 12px;
+			color: #888;
+		}
+		
+		.tips {
+			display: inline-block;
+			padding: 3px 8px;
+			border: 1px solid #b9b8b8;
+			margin-right: 10px;
+		}
+
+	</style>
+
+
+</head>
+
+<body>
+
+	<div id="password">
+		密碼：<input type="password" autocomplete="off" />
+		<p>密碼強度：<span class="tips" level="0"></span><span class="tips" level="1"></span><span class="tips" level="2"></span><span class="tips" level="3"></span></p>
+	</div>
+	<script>
+		$().ready(function() {
+			var tipColor = ['red', 'yellow', 'orange', 'green'];
+
+			function matchLevel(password) {
+				if (password.length === 0) {
+					return -1;
+				} else if (password.length >= 1 && password.length < 6) {
+					return 0;
+				} else if (password.length >= 6 && password.length < 10) {
+					return 1;
+				} else if (password.length >= 10 && password.length < 16) {
+					return 2;
+				} else {
+					return 3;
+				}
+			}
+
+			$("#password>input").keyup(function() {
+
+				var pass = $(this).val();
+				var level = matchLevel(pass);
+				if (level >= 0) {
+					$(".tips[level='0']").css("background", tipColor[0]);
+				} else {
+					$(".tips[level='0']").css("background", "");
+				}
+				if (level >= 1) {
+					$(".tips[level='1']").css("background", tipColor[1]);
+				} else {
+					$(".tips[level='1']").css("background", "");
+				}
+				if (level >= 2) {
+					$(".tips[level='2']").css("background", tipColor[2]);
+				} else {
+					$(".tips[level='2']").css("background", "");
+				}
+				if (level >= 3) {
+					$(".tips[level='3']").css("background", tipColor[3]);
+				} else {
+					$(".tips[level='3']").css("background", "");
+				}
+
+			});
+
+		});
+
+	</script>
+
+</body>
+
+</html>
